@@ -1,11 +1,10 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Index from './components/Index.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Index />
+  <router-view></router-view>
+  <footer>
+    <p class="cite">行者独步于遥远的旷野，素昧平生的未知，遭遇处处的难题，只因为一个执着的信任，敢于把世界上任何一片土地都放在脚下<p><cite>——余秋雨《行者无疆》</cite></p></p>
+  </footer>
 </template>
 
 <style>
@@ -13,7 +12,6 @@ import Index from './components/Index.vue'
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* font-family: Architects Daughter, Helvetica Neue, Helvetica, Arial, serif; */
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,5 +22,11 @@ import Index from './components/Index.vue'
 html, body {
   margin: 0;
   padding: 0;
+}
+
+.cite {
+  display: inline-block;
+  text-align: right;
+  font-size: 12px;
 }
 </style>
