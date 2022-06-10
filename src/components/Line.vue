@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 
-const dataSource = ref([
+const dataSource = [
   {
     day: 1,
     line: '昆明盘龙区-安宁县-禄丰市',
@@ -10,41 +9,46 @@ const dataSource = ref([
     accommodationAltitude: '1582',
     remark: '13:17 出发',
   },
-])
+]
 
-const columns = ref([
+const columns = [
   {
     title: '序号',
     dataIndex: 'day',
     key: 'day',
-    slots: { customRender: 'day' },
+    width: '10%',
   },
   {
     title: '行程',
     dataIndex: 'line',
     key: 'line',
+    width: '35%',
   },
   {
-    title: '路程（公里）',
+    title: '路程（KM）',
     dataIndex: 'distance',
     key: 'distance',
+    width: '15%',
   },
   {
-    title: '时间（小时）',
+    title: '时间（h）',
     dataIndex: 'time',
     key: 'time',
+    width: '10%',
   },
   {
     title: '住宿点海拔（米）',
     dataIndex: 'accommodationAltitude',
     key: 'accommodationAltitude',
+    width: '15%',
   },
   {
     title: '备注',
     dataIndex: 'remark',
     key: 'remark',
+    width: '15%',
   },
-])
+]
 </script>
 
 <template>
@@ -54,49 +58,19 @@ const columns = ref([
   <main class="main-content">
     <h3>日程</h3>
     <a-table :dataSource="dataSource" :columns="columns" :pagination="false">
-      <template #day="{ text }">
-        <router-link :to="`/day/${text}`" class="route">{{text}}</router-link>
+      <template #bodyCell="{ column, record }">
+        <template v-if="column.key === 'day'">
+          <router-link :to="`/day/${record.day}`" class="route">{{record.day}}</router-link>
+        </template>
       </template>
     </a-table>
   </main>
 </template>
 
 <style scoped>
-.page-header {
-  padding: 5rem 6rem;
-  color: #fff;
-  text-align: center;
-  background-image: linear-gradient(120deg, #155799, #66CCFF);
-}
-
-.main-content {
-  flex-grow: 1;
-  text-align: left;
-  word-wrap: break-word;
-}
-
-@media screen and (min-width: 42em) and (max-width: 64em) {
-  .main-content {
-    padding: 2rem 4rem;
-    font-size: 1.1rem;
-  }
-}
-
-@media screen and (min-width: 64em) {
-  .main-content {
-    max-width: 64rem;
-    padding: 2rem 6rem;
-    font-size: 1.1rem;
-  }
-}
-
-.item {
-  margin: 0 2rem;
-}
-
 .route {
   display: inline-block;
-  width: 15rem;
+  width: 100%;
   font-style: italic;
   text-decoration: underline;
   cursor: pointer;

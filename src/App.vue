@@ -24,6 +24,34 @@ html, body {
   padding: 0;
 }
 
+.page-header {
+  padding: 5rem 6rem;
+  color: #fff;
+  text-align: center;
+  background-image: linear-gradient(120deg, #155799, #66CCFF);
+}
+
+.main-content {
+  flex-grow: 1;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .main-content {
+    padding: 2rem 4rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .main-content {
+    max-width: 64rem;
+    padding: 2rem 6rem;
+    font-size: 1.1rem;
+  }
+}
+
 .cite {
   display: inline-block;
   text-align: right;
