@@ -5,6 +5,8 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ACollapse: typeof import('ant-design-vue/es')['Collapse']
+    ACollapsePanel: typeof import('ant-design-vue/es')['CollapsePanel']
     ATable: typeof import('ant-design-vue/es')['Table']
     Day: typeof import('./src/components/Day.vue')['default']
     Index: typeof import('./src/components/Index.vue')['default']
